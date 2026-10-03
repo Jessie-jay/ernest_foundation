@@ -1,26 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ========================================
+     BRAND COLORS
+     ======================================== */
+  --color-primary-50: #EFF8FF;
+  --color-primary-100: #DFF0FF;
+  --color-primary-200: #B9E0FF;
+  --color-primary-300: #7CC5FA;
+  --color-primary-400: #3BA7F2;
+  --color-primary-500: #0876C9;
+  --color-primary-600: #0664AA;
+  --color-primary-700: #05518A;
+  --color-primary-800: #073F69;
+  --color-primary-900: #082F4D;
+
+  --color-secondary-50: #F0FDF4;
+  --color-secondary-100: #DCFCE7;
+  --color-secondary-200: #BBF7D0;
+  --color-secondary-300: #86EFAC;
+  --color-secondary-400: #4ADE80;
+  --color-secondary-500: #27C83E;
+  --color-secondary-600: #1EAC34;
+  --color-secondary-700: #18892B;
+  --color-secondary-800: #166D26;
+  --color-secondary-900: #145A24;
+
+  /* ========================================
+     ACCENT
+     ======================================== */
+  --color-accent-50: #FFFBEA;
+  --color-accent-100: #FFF3B8;
+  --color-accent-200: #FFE77A;
+  --color-accent-300: #FFDD4A;
+  --color-accent-400: #FFD83D;
+  --color-accent-500: #F9C900;
+  --color-accent-600: #D9A900;
+
+  /* ========================================
+     NEUTRALS
+     ======================================== */
+  --color-white: #FFFFFF;
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F2F4F7;
+  --color-neutral-200: #E4E7EC;
+  --color-neutral-300: #D0D5DD;
+  --color-neutral-400: #98A2B3;
+  --color-neutral-500: #667085;
+  --color-neutral-600: #475467;
+  --color-neutral-700: #344054;
+  --color-neutral-800: #1D2939;
+  --color-neutral-900: #101828;
+  --color-black: #000000;
+
+  /* ========================================
+     DARK SURFACE
+     ======================================== */
+  --color-dark-900: #071A2B;
+  --color-dark-800: #0B263D;
+  --color-dark-700: #123A58;
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+  --color-background: var(--color-white);
+  --color-background-subtle: var(--color-neutral-50);
+  --color-surface: var(--color-white);
+  --color-surface-subtle: var(--color-neutral-50);
+  --color-surface-dark: var(--color-dark-900);
+
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-inverse: var(--color-white);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+
+  --color-link: var(--color-primary-500);
+  --color-link-hover: var(--color-primary-600);
+
+  /* ========================================
+     ACTION COLORS
+     ======================================== */
+  --color-action-primary: var(--color-primary-500);
+  --color-action-primary-hover: var(--color-primary-600);
+  --color-action-secondary: var(--color-secondary-500);
+  --color-action-secondary-hover: var(--color-secondary-600);
+  --color-action-accent: var(--color-accent-400);
+  --color-action-accent-hover: var(--color-accent-500);
+
+  /* ========================================
+     STATUS COLORS
+     ======================================== */
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+  --color-warning: #D97706;
+  --color-warning-light: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-light: #FEE2E2;
+  --color-info: var(--color-primary-500);
+  --color-info-light: var(--color-primary-50);
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-display: "Inter Tight", system-ui, sans-serif;
+  --font-editorial: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", Arial, sans-serif;
+
+  /* ========================================
+     TYPE SCALE
+     ======================================== */
+  --text-xs: 0.75rem;       /* 12px */
+  --text-sm: 0.875rem;      /* 14px */
+  --text-base: 1rem;        /* 16px */
+  --text-lg: 1.125rem;      /* 18px */
+  --text-xl: 1.25rem;       /* 20px */
+  --text-2xl: 1.5rem;       /* 24px */
+  --text-3xl: 1.875rem;     /* 30px */
+  --text-4xl: 2.25rem;      /* 36px */
+  --text-5xl: 3rem;         /* 48px */
+  --text-6xl: 3.75rem;      /* 60px */
+  --text-7xl: 4.5rem;       /* 72px */
+  --text-8xl: 5.5rem;       /* 88px */
+
+  /* ========================================
+     LINE HEIGHT
+     ======================================== */
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ========================================
+     SPACING
+     ======================================== */
+  --space-1: 0.25rem;       /* 4px */
+  --space-2: 0.5rem;        /* 8px */
+  --space-3: 0.75rem;       /* 12px */
+  --space-4: 1rem;          /* 16px */
+  --space-5: 1.25rem;       /* 20px */
+  --space-6: 1.5rem;        /* 24px */
+  --space-8: 2rem;          /* 32px */
+  --space-10: 2.5rem;       /* 40px */
+  --space-12: 3rem;         /* 48px */
+  --space-16: 4rem;         /* 64px */
+  --space-20: 5rem;         /* 80px */
+  --space-24: 6rem;         /* 96px */
+  --space-32: 8rem;         /* 128px */
+  --space-40: 10rem;        /* 160px */
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1280px;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+  --shadow-xs:
+    0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-sm:
+    0 2px 4px rgba(16, 24, 40, 0.06);
+  --shadow-md:
+    0 4px 12px rgba(16, 24, 40, 0.08);
+  --shadow-lg:
+    0 12px 32px rgba(16, 24, 40, 0.12);
+  --shadow-xl:
+    0 20px 48px rgba(16, 24, 40, 0.16);
+
+  /* ========================================
+     BUTTONS
+     ======================================== */
+  --button-height-sm: 40px;
+  --button-height-md: 48px;
+  --button-height-lg: 56px;
+  --button-padding-x: 24px;
+  --button-radius: 10px;
+
+  /* ========================================
+     MOTION
+     ======================================== */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ========================================
+     Z-INDEX
+     ======================================== */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-toast: 400;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: var(--leading-snug);
+    font-weight: 400;
+    color: var(--color-text-primary);
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Navigation Links */
+.nav-link {
+  color: var(--color-text-primary);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.nav-link:hover {
+  color: var(--color-primary-500);
+}
+
+.nav-link.active {
+  color: var(--color-primary-500);
+  font-weight: 600;
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 50px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-1);
+  padding-right: var(--space-1);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+}
+
+/* Site Container - constrains content width and centers it for a
+   classic, modern layout with generous whitespace. */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Wide container for layouts that need a bit more room (hero, header, footer) */
+.site-container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .site-container-wide {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container-wide {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Glassmorphic hover for hero buttons.
+   Keeps each button's own color, adds a frosted-glass look on hover,
+   and stays static (no transform). !important overrides the Button
+   component's inline styles. */
+.btn-glass-primary,
+.btn-glass-light {
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard) !important;
+}
+
+/* Blue primary button - frosted blue on hover */
+.btn-glass-primary:hover {
+  background-color: rgba(8, 118, 201, 0.55) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(8, 118, 201, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* White light button - frosted white on hover */
+.btn-glass-light:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Floating animation for decorative corner images */
+@keyframes float-updown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+
+.animate-float {
+  animation: float-updown 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-updown 4s ease-in-out infinite;
+  animation-delay: 2s;
 }
