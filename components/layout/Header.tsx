@@ -2,15 +2,30 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: '/about', label: 'About us', match: '/about' },
+    { href: '/our-work', label: 'Our Work', match: '/our-work' },
+    { href: '/contact', label: 'Contact', match: '/contact' },
+  ];
+
+  const isActive = (match: string) => {
+    if (match.startsWith('/#')) {
+      return pathname === '/';
+    }
+    return pathname === match || pathname.startsWith(`${match}/`);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
       <nav className="site-container-wide">
-        <div className="flex items-center justify-between h-20">
+        <div className="relative flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center">
             <Image
@@ -23,25 +38,23 @@ export function Header() {
             />
           </a>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
-            <a 
-              href="#about" 
-              className="nav-link"
-            >
-              About us
-            </a>
-            <a 
-              href="#contact" 
-              className="nav-link"
-            >
-              Contact
-            </a>
+          {/* Desktop Navigation - centered */}
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`nav-link${isActive(link.match) ? ' active' : ''}`}
+                aria-current={isActive(link.match) ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
           
           {/* CTA Button */}
           <div className="flex items-center gap-4">
-            <Button variant="primary" size="md">
+            <Button variant="primary" size="md" href="/about">
               Donate Now
             </Button>
             
@@ -74,20 +87,17 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col gap-4">
-              <a
-                href="#about"
-                className="nav-link py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About us
-              </a>
-              <a
-                href="#contact"
-                className="nav-link py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </a>
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`nav-link py-2${isActive(link.match) ? ' active' : ''}`}
+                  aria-current={isActive(link.match) ? 'page' : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         )}

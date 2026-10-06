@@ -27,13 +27,13 @@ export function HeroSection() {
         </h1>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="primary" size="lg" className="btn-glass-primary">
+          <Button variant="primary" size="lg" className="btn-glass-primary" href="/about">
             Support the Mission
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </Button>
-          <Button variant="light" size="lg" className="btn-glass-light">
+          <Button variant="light" size="lg" className="btn-glass-light" href="/about">
             Discover Our Story
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

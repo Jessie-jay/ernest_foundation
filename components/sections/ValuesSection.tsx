@@ -8,13 +8,6 @@ export function ValuesSection() {
         {/* Horizontal line passing above the cards, below the heading/subtitle */}
         <div className="absolute left-0 right-0 top-[38%] h-px bg-[rgba(16,24,40,0.1)]"></div>
 
-        {/* Left vertical line: from the top of the section down to the horizontal line */}
-        <div className="absolute top-0 left-[22%] h-[38%] w-px bg-[rgba(16,24,40,0.1)]"></div>
-
-        {/* Right vertical line (near the 3rd card), nudged slightly right:
-            from the top down to the horizontal line */}
-        <div className="absolute top-0 left-[76%] h-[38%] w-px bg-[rgba(16,24,40,0.1)]"></div>
-
         {/* Short vertical line on the 2nd card: from the horizontal line down
             to the top of the 2nd card */}
         <div className="absolute top-[38%] left-1/2 h-[14%] w-px bg-[rgba(16,24,40,0.1)]"></div>
@@ -25,11 +18,15 @@ export function ValuesSection() {
         {/* Line from the frame's right edge running inward to end under the 3rd card */}
         <div className="absolute top-[82%] right-0 w-[18%] h-px bg-[rgba(16,24,40,0.1)]"></div>
 
-        {/* Small box markers where lines meet the horizontal line */}
+        {/* Two vertical lines going DOWN from below the cards to the bottom
+            of the section, heading toward the AbbaSection below */}
+        <div className="absolute top-[82%] bottom-0 left-[22%] w-px bg-[rgba(16,24,40,0.1)]"></div>
+        <div className="absolute top-[82%] bottom-0 left-[76%] w-px bg-[rgba(16,24,40,0.1)]"></div>
+
+        {/* Small box markers at the lower intersections */}
         {[
-          { left: '22%', top: '38%' },
-          { left: '50%', top: '38%' },
-          { left: '76%', top: '38%' },
+          { left: '22%', top: '82%' },
+          { left: '76%', top: '82%' },
         ].map((pos, i) => (
           <div
             key={i}

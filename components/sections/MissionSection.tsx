@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Button } from '@/components/ui/Button';
 
 const steps = [
   {
@@ -97,7 +98,7 @@ export function MissionSection() {
         </div>
 
         {/* 2-Column Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mt-[200px]">
           {features.map((feature) => (
             <div key={feature.tag} className="group">
               <div className="relative h-[300px] sm:h-[340px] max-w-md overflow-hidden rounded-[10px] shadow-lg mb-6">
@@ -127,6 +128,11 @@ export function MissionSection() {
                   {feature.description}
                 </p>
               )}
+              <div className="mt-5">
+                <Button variant="outline" size="md" href="/about">
+                  See Our Work
+                </Button>
+              </div>
             </div>
           ))}
         </div>

@@ -44,7 +44,7 @@ export function CTASection() {
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               {/* Primary - strongest emphasis */}
               <a
-                href="/donate"
+                href="/about"
                 className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-[10px] bg-white text-[#0876C9] font-medium shadow-lg transition-transform hover:-translate-y-0.5"
               >
                 Donate Now
