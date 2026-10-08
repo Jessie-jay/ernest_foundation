@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/Button';
+import { DonateButton } from '@/components/donation/DonateButton';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,9 +54,10 @@ export function Header() {
           
           {/* CTA Button */}
           <div className="flex items-center gap-4">
-            <Button variant="primary" size="md" href="/about">
-              Donate Now
-            </Button>
+            {/* Donate - desktop only; on mobile it lives in the hamburger menu */}
+            <div className="hidden md:block">
+              <DonateButton variant="primary" size="md" />
+            </div>
             
             {/* Mobile Menu Button */}
             <button
@@ -98,6 +99,14 @@ export function Header() {
                   {link.label}
                 </a>
               ))}
+
+              {/* Donate button inside the mobile menu */}
+              <DonateButton
+                variant="primary"
+                size="md"
+                className="mt-2 w-full"
+                onClick={() => setMobileMenuOpen(false)}
+              />
             </div>
           </div>
         )}

@@ -1,6 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ContactSection } from '@/components/sections/contact/ContactSection';
+import { ContactIntroSection } from '@/components/sections/contact/ContactIntroSection';
 
 export const metadata = {
   title: 'Contact | Ernest Chianumba Foundation',
@@ -13,7 +13,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <ContactSection />
+        <ContactIntroSection />
       </main>
       <Footer />
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+import { DonateButton } from '@/components/donation/DonateButton';
 
 export function AbbaSection() {
   return (
@@ -55,12 +55,12 @@ export function AbbaSection() {
                 Abba&rsquo;s Haven is our vision for holistic care, where people are supported with compassion, guided with wisdom and given room to grow.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" size="lg" href="/about">
+                <DonateButton variant="primary" size="lg">
                   Support the Vision
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </Button>
+                </DonateButton>
               </div>
             </div>
           </div>

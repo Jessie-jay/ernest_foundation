@@ -39,7 +39,25 @@ export function SupportIncludesSection() {
         {/* Heading - centered */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-[#071A2B] leading-tight mb-5">
-            What the Programme Includes
+            What the{' '}
+            <span className="relative inline-block">
+              Programme
+              {/* Two hand-drawn blue underlines that intersect at the left end */}
+              <svg
+                className="absolute -bottom-2 left-0 w-full h-3 text-[#0876C9] pointer-events-none"
+                viewBox="0 0 200 20"
+                preserveAspectRatio="none"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="M4 14C60 6 140 6 196 11" />
+                <path d="M4 14C64 15 142 16 196 7" />
+              </svg>
+            </span>{' '}
+            Includes
           </h2>
           <p className="text-base sm:text-lg text-[#344054] leading-relaxed max-w-md mx-auto">
             The programme provides targeted assistance to help address the

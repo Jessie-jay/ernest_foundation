@@ -28,6 +28,11 @@ const trustees: Trustee[] = [
     role: 'Trustee',
     image: '/Images/trustees/ebuka_okafor.jpeg',
   },
+  {
+    name: 'Emmanuel Udoh',
+    role: 'Trustee',
+    image: '/Images/trustees/emmanuel_udoh.jpg',
+  },
 ];
 
 export function BoardOfTrusteesSection() {
@@ -42,8 +47,8 @@ export function BoardOfTrusteesSection() {
           </h2>
         </div>
 
-        {/* Grid of trustees - 4 across, spanning the full width */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+        {/* Grid of trustees - 3 across (spanning full width), remaining 2 wrap to next row */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
           {trustees.map((trustee) => (
             <div key={trustee.name}>
               {/* Portrait with dark border */}
@@ -52,7 +57,7 @@ export function BoardOfTrusteesSection() {
                   src={trustee.image}
                   alt={`${trustee.name}, ${trustee.role}`}
                   fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>

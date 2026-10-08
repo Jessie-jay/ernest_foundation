@@ -71,15 +71,15 @@ export function UseCasesSection() {
             {useCases.map((useCase) => (
               <article
                 key={useCase.title}
-                className={`${useCase.cardClass} shrink-0 w-[clamp(360px,86vw,560px)] rounded-[16px] overflow-hidden flex items-center gap-5 p-5`}
+                className={`${useCase.cardClass} shrink-0 w-[clamp(360px,86vw,560px)] rounded-[16px] overflow-hidden flex flex-col sm:flex-row sm:items-center gap-5 p-5`}
               >
-                {/* Embedded image */}
-                <div className="relative w-[42%] shrink-0 aspect-[4/3] rounded-[10px] overflow-hidden">
+                {/* Embedded image - full width on mobile, side on larger screens */}
+                <div className="relative w-full sm:w-[42%] shrink-0 aspect-[4/3] rounded-[10px] overflow-hidden">
                   <Image
                     src={useCase.image}
                     alt={useCase.title}
                     fill
-                    sizes="(max-width: 768px) 40vw, 220px"
+                    sizes="(max-width: 640px) 86vw, 220px"
                     className="object-cover"
                   />
                 </div>
@@ -110,7 +110,7 @@ export function UseCasesSection() {
                   aria-current={index === activeIndex}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     index === activeIndex
-                      ? 'w-7 bg-[#071A2B]'
+                      ? 'w-7 bg-[#0876C9]'
                       : 'w-2.5 bg-[#CBD2D9] hover:bg-[#98A2B3]'
                   }`}
                 />
@@ -124,7 +124,7 @@ export function UseCasesSection() {
                 onClick={goPrev}
                 disabled={activeIndex === 0}
                 aria-label="Previous card"
-                className="w-12 h-12 rounded-full border border-[#D0D5DD] flex items-center justify-center text-[#071A2B] transition-colors hover:bg-[#071A2B] hover:text-white hover:border-[#071A2B] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#071A2B] disabled:hover:border-[#D0D5DD]"
+                className="w-12 h-12 rounded-full border border-[#D0D5DD] flex items-center justify-center text-[#0876C9] transition-colors hover:bg-[#0876C9] hover:text-white hover:border-[#0876C9] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#0876C9] disabled:hover:border-[#D0D5DD]"
               >
                 <svg
                   className="w-5 h-5"
@@ -144,7 +144,7 @@ export function UseCasesSection() {
                 onClick={goNext}
                 disabled={activeIndex === lastIndex}
                 aria-label="Next card"
-                className="w-12 h-12 rounded-full bg-[#071A2B] flex items-center justify-center text-white transition-colors hover:bg-[#0876C9] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#071A2B]"
+                className="w-12 h-12 rounded-full bg-[#0876C9] flex items-center justify-center text-white transition-colors hover:bg-[#0664AA] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#0876C9]"
               >
                 <svg
                   className="w-5 h-5"

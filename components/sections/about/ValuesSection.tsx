@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type Value = {
   title: string;
@@ -79,7 +79,18 @@ const values: Value[] = [
 
 export function ValuesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  // On mobile the track scrolls natively (touch); the arrow-driven transform
+  // only applies from the `sm` breakpoint up.
+  const [isDesktop, setIsDesktop] = useState(false);
   const lastIndex = values.length - 1;
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 640px)');
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   const goPrev = () => setActiveIndex((i) => Math.max(0, i - 1));
   const goNext = () => setActiveIndex((i) => Math.min(lastIndex, i + 1));
@@ -99,7 +110,7 @@ export function ValuesSection() {
               onClick={goPrev}
               disabled={activeIndex === 0}
               aria-label="Previous value"
-              className="w-11 h-11 rounded-lg border border-[#D0D5DD] flex items-center justify-center text-[#071A2B] transition-colors hover:bg-[#071A2B] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#071A2B]"
+              className="w-11 h-11 rounded-lg border border-[#D0D5DD] flex items-center justify-center text-[#0876C9] transition-colors hover:bg-[#0876C9] hover:text-white hover:border-[#0876C9] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#0876C9] disabled:hover:border-[#D0D5DD]"
             >
               <svg
                 className="w-5 h-5"
@@ -119,7 +130,7 @@ export function ValuesSection() {
               onClick={goNext}
               disabled={activeIndex === lastIndex}
               aria-label="Next value"
-              className="w-11 h-11 rounded-lg border border-[#D0D5DD] flex items-center justify-center text-[#071A2B] transition-colors hover:bg-[#071A2B] hover:text-white disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#071A2B]"
+              className="w-11 h-11 rounded-lg border border-[#D0D5DD] flex items-center justify-center text-[#0876C9] transition-colors hover:bg-[#0876C9] hover:text-white hover:border-[#0876C9] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#0876C9] disabled:hover:border-[#D0D5DD]"
             >
               <svg
                 className="w-5 h-5"
@@ -137,18 +148,21 @@ export function ValuesSection() {
           </div>
         </div>
 
-        {/* Carousel track - cards overflow to the right */}
-        <div
-          className="flex gap-5 lg:gap-6 transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(calc(${-activeIndex} * (clamp(260px, 70vw, 300px) + 1.25rem)))`,
-          }}
-        >
-          {values.map((value) => (
-            <article
-              key={value.title}
-              className="shrink-0 w-[clamp(260px,70vw,300px)] rounded-[14px] border border-[#ECE7DD] bg-white overflow-hidden flex flex-col"
-            >
+        {/* Carousel track - native scroll on mobile, arrow-driven slide on sm+ */}
+        <div className="overflow-x-auto sm:overflow-visible -mx-5 px-5 sm:mx-0 sm:px-0 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory sm:snap-none">
+          <div
+            className="flex gap-5 lg:gap-6 transition-transform duration-500 ease-out"
+            style={{
+              transform: isDesktop
+                ? `translateX(calc(${-activeIndex} * (clamp(260px, 70vw, 300px) + 1.25rem)))`
+                : undefined,
+            }}
+          >
+            {values.map((value) => (
+              <article
+                key={value.title}
+                className="shrink-0 w-[clamp(260px,70vw,300px)] snap-start rounded-[14px] border border-[#ECE7DD] bg-white overflow-hidden flex flex-col"
+              >
               {/* Top: title + description */}
               <div className="p-7 flex-1">
                 <h3 className="font-display font-bold text-lg sm:text-xl text-[#071A2B] leading-snug mb-3">
@@ -176,8 +190,9 @@ export function ValuesSection() {
                   {value.icon}
                 </svg>
               </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -98,10 +98,10 @@ export function MissionVisionSection() {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  {/* Shaft: begins at the heading text, arcs right then curves back down to the cards */}
-                  <path d="M6 10C44 4 86 18 80 70c-3 24-28 38-44 48" />
-                  {/* Arrowhead pointing down toward the cards */}
-                  <path d="M24 108l12 10 15-9" />
+                  {/* Shaft: a smooth arc sweeping from the heading down toward the cards */}
+                  <path d="M8 10C70 6 104 44 70 112" />
+                  {/* Arrowhead: two barbs radiating from the tip (70,112) */}
+                  <path d="M50 102L70 114 86 96" />
                 </svg>
               </h2>
             </div>

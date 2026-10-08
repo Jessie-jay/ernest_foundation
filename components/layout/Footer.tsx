@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+import { DonateButton } from '@/components/donation/DonateButton';
 import { foundationInfo } from '@/data/foundation-info';
 
 export function Footer() {
@@ -15,9 +15,7 @@ export function Footer() {
           <p className="text-sm text-white/70 leading-relaxed max-w-xs mx-auto mb-8">
             Guided by love, cared for with grace, building lives across Nigeria.
           </p>
-          <Button variant="primary" size="md" href="/about">
-            Donate Now
-          </Button>
+          <DonateButton variant="primary" size="md" />
         </div>
 
         {/* Middle - brand / contact / follow */}
@@ -36,13 +34,13 @@ export function Footer() {
 
             {/* Contact + Follow */}
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-center sm:text-left">
                 <span className="text-white/60">Contact us</span>
                 <a
                   href="https://www.instagram.com/ernest_chianumbafoundation?stkn=MTB3Zm9wbG5wbzZ6Zw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#3BA7F2] hover:underline"
+                  className="text-[#3BA7F2] hover:underline break-all"
                 >
                   {foundationInfo.contact.email}
                 </a>
@@ -70,10 +68,10 @@ export function Footer() {
         <div className="border-t border-[#101928] py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
             <div className="flex items-center gap-8">
-              <a href="#privacy" className="text-white/60 hover:text-white transition-colors">
+              <a href="/privacy-policy" className="text-white/60 hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="#terms" className="text-white/60 hover:text-white transition-colors">
+              <a href="/terms" className="text-white/60 hover:text-white transition-colors">
                 Terms of Use
               </a>
             </div>
