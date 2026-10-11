@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 
 const slides = [
-  { src: '/Images/image_12_trimmed.png', alt: 'A young person looking toward the horizon' },
-  { src: '/Images/image_11.png', alt: 'Children supported by the Foundation' },
-  { src: '/Images/image_05.png', alt: 'A caregiver with a child' },
-  { src: '/Images/image_06.png', alt: 'Children in a classroom' },
+  { src: '/Images/image_02.png', alt: 'A young person looking toward the horizon' },
+  { src: '/Images/image_03.png', alt: 'Children supported by the Foundation' },
+  { src: '/Images/image_04.png', alt: 'A caregiver with a child' },
+  { src: '/Images/image_07.png', alt: 'Children in a classroom' },
 ];
 
 export function ImpactSection() {

@@ -24,7 +24,7 @@ export function AboutHero() {
           {/* Right - Image */}
           <div className="relative">
             {/* Photo */}
-            <div className="relative h-[360px] sm:h-[460px] rounded-[10px] overflow-hidden shadow-[0_10px_30px_rgba(16,24,40,0.15)]">
+            <div className="relative h-[360px] sm:h-[460px] rounded-[10px] overflow-hidden">
               <Image
                 src="/Images/image_01.png"
                 alt="Members and supporters of the Foundation gathered together"
