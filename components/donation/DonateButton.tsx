@@ -22,7 +22,7 @@ export function DonateButton({
   size = 'md',
   className = '',
   icon,
-  children = 'Donate Now',
+  children = 'Make a Donation',
   onClick,
 }: DonateButtonProps) {
   const { openDonate } = useDonate();

@@ -26,7 +26,7 @@ export function AboutHero() {
             {/* Photo */}
             <div className="relative h-[360px] sm:h-[460px] rounded-[10px] overflow-hidden shadow-[0_10px_30px_rgba(16,24,40,0.15)]">
               <Image
-                src="/Images/image_29.png"
+                src="/Images/image_01.png"
                 alt="Members and supporters of the Foundation gathered together"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

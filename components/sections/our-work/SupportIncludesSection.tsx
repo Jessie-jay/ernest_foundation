@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { DonateButton } from '@/components/donation/DonateButton';
 
 type SupportItem = {
   title: string;
@@ -81,9 +82,10 @@ export function SupportIncludesSection() {
                   <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#071A2B] mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-base sm:text-lg text-[#344054] leading-relaxed max-w-sm">
+                  <p className="text-base sm:text-lg text-[#344054] leading-relaxed max-w-[22rem] mb-6">
                     {item.description}
                   </p>
+                  <DonateButton variant="outline" size="md" />
                 </div>
 
                 {/* Image */}

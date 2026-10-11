@@ -45,7 +45,7 @@ export function CTASection() {
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               {/* Primary - strongest emphasis */}
               <DonateTrigger className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-[10px] bg-white text-[#0876C9] font-medium shadow-lg transition-transform hover:-translate-y-0.5">
-                Donate Now
+                Make a Donation
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

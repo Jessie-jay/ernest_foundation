@@ -11,10 +11,13 @@ const channels: Channel[] = [
   {
     title: 'Email Us',
     icon: (
-      <>
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="M3 7l9 6 9-6" />
-      </>
+      <svg className="w-10 h-10" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        {/* motion lines */}
+        <path d="M3 18h5M1 24h7M4 30h4" stroke="#0876C9" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
+        {/* envelope */}
+        <rect x="14" y="12" width="30" height="24" rx="4" fill="#0876C9" />
+        <path d="M18 19l11 8 11-8" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </svg>
     ),
     body: (
       <>
@@ -32,7 +35,14 @@ const channels: Channel[] = [
   {
     title: 'Call Us',
     icon: (
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+      <svg className="w-10 h-10" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        {/* ringing waves radiating from the handset's earpiece (top-right) */}
+        <path d="M30 20a9 9 0 0 0-9-9" stroke="#0876C9" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
+        <path d="M36 20a15 15 0 0 0-15-15" stroke="#0876C9" strokeWidth="3" strokeLinecap="round" opacity="0.45" />
+        <path d="M42 20A21 21 0 0 0 21 -1" stroke="#0876C9" strokeWidth="3" strokeLinecap="round" opacity="0.25" />
+        {/* tilted handset */}
+        <path d="M11.3 23.1c5.6 7.9 11.7 14 19.6 19.6 1.3.9 3 .7 4.1-.4l2.8-2.8c1.3-1.3 1.1-3.4-.4-4.5l-4.1-3a3 3 0 0 0-3.4-.1l-1.9 1.2a40 40 0 0 1-8.2-8.2l1.2-1.9a3 3 0 0 0-.1-3.4l-3-4.1c-1.1-1.5-3.2-1.7-4.5-.4L10.6 15c-1.1 1.1-1.3 2.8-.4 4.1 0.4.6.8 1.2 1.1 1.7z" fill="#0876C9" />
+      </svg>
     ),
     body: (
       <>
@@ -47,7 +57,14 @@ const channels: Channel[] = [
   {
     title: 'Chat Us',
     icon: (
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      <svg className="w-10 h-10" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        {/* speech bubble with tail at bottom-left */}
+        <path d="M24 7c-10 0-18 6.7-18 15 0 4.3 2.2 8.1 5.7 10.8L9 42l9.6-4.4c1.7.4 3.5.6 5.4.6 10 0 18-6.7 18-15S34 7 24 7z" fill="#0876C9" />
+        {/* three dots */}
+        <circle cx="16" cy="22" r="2.3" fill="#fff" />
+        <circle cx="24" cy="22" r="2.3" fill="#fff" />
+        <circle cx="32" cy="22" r="2.3" fill="#fff" />
+      </svg>
     ),
     body: (
       <>
@@ -117,18 +134,7 @@ export function ContactIntroSection() {
               className="bg-[#F6F5F3] rounded-[14px] p-8"
             >
               <span className="inline-flex text-[#0876C9] mb-6">
-                <svg
-                  className="w-8 h-8"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  {channel.icon}
-                </svg>
+                {channel.icon}
               </span>
               <h3 className="font-display font-bold text-xl sm:text-2xl text-[#071A2B] mb-3">
                 {channel.title}
