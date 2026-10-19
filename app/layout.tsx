@@ -34,6 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${interTight.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
+      <head>
+        <meta name="google-site-verification" content="VaDcT8ETwVWi28LtzuuFf_RnKeATo6r6b-nntOApmqU" />
+      </head>
       <body className="min-h-full flex flex-col">
         <DonateProvider>{children}</DonateProvider>
       </body>
