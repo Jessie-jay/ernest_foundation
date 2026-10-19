@@ -25,7 +25,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: "Ernest Chianumba Foundation",
-  description: "Guided by love, cared for with grace, building lives.",
+  description: "The Ernest Chianumba Foundation is a Nigerian charitable foundation dedicated to supporting children through education, compassionate care and community support. Join us from anywhere in the world to help build brighter futures and create lasting opportunities for children in need.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
