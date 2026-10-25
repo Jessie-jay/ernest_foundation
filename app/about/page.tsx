@@ -2,8 +2,10 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { AboutHero } from '@/components/sections/about/AboutHero';
 import { MissionVisionSection } from '@/components/sections/about/MissionVisionSection';
+import { FounderMessageSection } from '@/components/sections/about/FounderMessageSection';
 import { ValuesSection } from '@/components/sections/about/ValuesSection';
 import { BoardOfTrusteesSection } from '@/components/sections/about/BoardOfTrusteesSection';
+import { OfficersSection } from '@/components/sections/about/OfficersSection';
 
 export const metadata = {
   title: 'About Us | Ernest Chianumba Foundation',
@@ -18,8 +20,10 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <MissionVisionSection />
+        <FounderMessageSection />
         <ValuesSection />
         <BoardOfTrusteesSection />
+        <OfficersSection />
       </main>
       <Footer />
     </div>

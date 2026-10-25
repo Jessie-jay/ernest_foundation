@@ -274,6 +274,13 @@
   background-color: var(--color-primary-500);
 }
 
+/* Mobile view: hide the active underline (menu is shown below the md breakpoint) */
+@media (max-width: 767px) {
+  .nav-link.active::after {
+    display: none;
+  }
+}
+
 /* Accessibility: Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

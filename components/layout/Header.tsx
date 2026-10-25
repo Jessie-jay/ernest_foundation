@@ -12,6 +12,7 @@ export function Header() {
   const navLinks = [
     { href: '/about', label: 'About us', match: '/about' },
     { href: '/our-work', label: 'Our Work', match: '/our-work' },
+    { href: '/media', label: 'Media', match: '/media' },
     { href: '/contact', label: 'Contact', match: '/contact' },
   ];
 

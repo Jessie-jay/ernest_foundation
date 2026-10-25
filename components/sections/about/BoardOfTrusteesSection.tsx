@@ -5,6 +5,10 @@ type Trustee = {
   name: string;
   role: string;
   image: string;
+  /** CSS object-position for the portrait (default: 'center top'). */
+  position?: string;
+  /** Extra zoom applied to the portrait (default: 1). */
+  scale?: number;
 };
 
 const trustees: Trustee[] = [
@@ -12,6 +16,8 @@ const trustees: Trustee[] = [
     name: 'Ernest Chianumba',
     role: 'Chairman & Trustee',
     image: '/Images/trustees/ernest_chianumba.jpeg',
+    // Push the picture slightly up
+    position: 'center 20%',
   },
   {
     name: 'Sandra Ezejiugo',
@@ -32,6 +38,8 @@ const trustees: Trustee[] = [
     name: 'Emmanuel Udoh',
     role: 'Trustee',
     image: '/Images/trustees/emmanuel_udoh.jpg',
+    // Push the picture slightly down
+    position: 'center 35%',
   },
 ];
 
@@ -47,30 +55,32 @@ export function BoardOfTrusteesSection() {
           </h2>
         </div>
 
-        {/* Grid of trustees - 3 across (spanning full width), remaining 2 wrap to next row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
+        {/* Grid of trustees - 2 per row on mobile, 4 per row on larger screens */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-10">
           {trustees.map((trustee) => (
-            <div key={trustee.name}>
-              {/* Portrait with dark border */}
-              <div className="relative aspect-square rounded-[6px] overflow-hidden bg-[#F2F4F7] mb-4 border border-[#E4E7EC]">
+            <div key={trustee.name} className="flex flex-col items-center text-center">
+              {/* Circular portrait - face centered at the top of the frame */}
+              <div className="relative aspect-square w-full max-w-[12rem] rounded-full overflow-hidden bg-[#F2F4F7] mb-5 ring-1 ring-[#E4E7EC] shadow-[0_8px_24px_rgba(16,24,40,0.10)]">
                 <Image
                   src={trustee.image}
                   alt={`${trustee.name}, ${trustee.role}`}
                   fill
-                  sizes="(max-width: 640px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 20vw, 192px"
                   className="object-cover"
+                  style={{
+                    objectPosition: trustee.position ?? 'center top',
+                    transform: trustee.scale ? `scale(${trustee.scale})` : undefined,
+                  }}
                 />
               </div>
 
               {/* Name + role */}
-              <div className="border-t border-[#EAECF0] pt-4">
-                <h3 className="font-display font-bold text-base text-[#071A2B] mb-1">
-                  {trustee.name}
-                </h3>
-                <p className="text-sm text-[#475467] leading-snug">
-                  {trustee.role}
-                </p>
-              </div>
+              <h3 className="font-display font-bold text-sm sm:text-base text-[#071A2B] mb-1">
+                {trustee.name}
+              </h3>
+              <p className="text-[10px] sm:text-xs font-medium tracking-[0.12em] uppercase text-[#475467] leading-snug">
+                {trustee.role}
+              </p>
             </div>
           ))}
         </div>
