@@ -11,7 +11,6 @@ type Currency = {
 // Currencies offered for donation
 const CURRENCIES: Currency[] = [
   { code: 'NGN', label: 'Nigerian Naira (NGN)', symbol: '\u20A6' },
-  { code: 'USD', label: 'US Dollar (USD)', symbol: '$' },
 ];
 
 const fieldClass =
@@ -25,7 +24,7 @@ type Props = {
 };
 
 export function DonateModal({ isOpen, onClose }: Props) {
-  const [currency, setCurrency] = useState('NGN');
+  const [currency] = useState('NGN');
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -129,24 +128,14 @@ export function DonateModal({ isOpen, onClose }: Props) {
           {/* Currency */}
           <div>
             <label htmlFor="donate-currency" className={labelClass}>Currency</label>
-            <div className="relative">
-              <select
-                id="donate-currency"
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                className={`${fieldClass} appearance-none pr-10`}
-              >
-                {CURRENCIES.map((c) => (
-                  <option key={c.code} value={c.code}>{c.label}</option>
-                ))}
-              </select>
-              {/* Dropdown chevron icon */}
-              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#475467]">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </span>
-            </div>
+            {/* Only NGN is offered for now, so show it as a fixed, read-only field */}
+            <input
+              id="donate-currency"
+              type="text"
+              value={selected.label}
+              readOnly
+              className={`${fieldClass} cursor-default`}
+            />
           </div>
 
           {/* Donation Amount */}

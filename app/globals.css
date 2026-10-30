@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -106,9 +105,11 @@
   /* ========================================
      TYPOGRAPHY
      ======================================== */
-  --font-display: "Inter Tight", system-ui, sans-serif;
-  --font-editorial: "Instrument Serif", Georgia, serif;
-  --font-body: "Inter", Arial, sans-serif;
+  /* Fonts are self-hosted by next/font (see app/layout.tsx), which adds
+     size-matched fallbacks so text doesn't jump when the font loads. */
+  --font-display: var(--font-inter-tight), system-ui, sans-serif;
+  --font-editorial: var(--font-instrument-serif), Georgia, serif;
+  --font-body: var(--font-inter), Arial, sans-serif;
 
   /* ========================================
      TYPE SCALE
@@ -213,8 +214,21 @@
 }
 
 @layer base {
+  /* Prevent sideways panning on mobile: nothing may extend past the viewport.
+     `clip` (with a `hidden` fallback) doesn't create a scroll container, so the
+     fixed header and vertical scrolling keep working normally. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
   html {
     scroll-behavior: smooth;
+    /* Stop iOS from inflating text sizes on rotate, which can widen content */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {

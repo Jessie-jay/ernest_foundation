@@ -63,7 +63,8 @@ export function TransparencySection() {
       <div className="site-container">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#E8F9EC] border border-[#C5EFCF] rounded-full text-sm font-medium mb-6">
+          {/* Fixed min-width + no-wrap so the pill doesn't resize as phrases rotate */}
+          <span className="inline-flex items-center justify-center gap-2 min-w-[16rem] max-w-full px-4 py-1.5 bg-[#E8F9EC] border border-[#C5EFCF] rounded-full text-sm font-medium whitespace-nowrap mb-6">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#27C83E] opacity-75 animate-ping"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#27C83E]"></span>

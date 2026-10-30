@@ -98,7 +98,7 @@ export function MissionSection() {
         </div>
 
         {/* 2-Column Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mt-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-10 mt-12 sm:mt-20 lg:mt-[200px]">
           {features.map((feature) => (
             <div key={feature.tag} className="group">
               <div className="relative h-[300px] sm:h-[340px] max-w-md overflow-hidden rounded-[10px] shadow-lg mb-6">

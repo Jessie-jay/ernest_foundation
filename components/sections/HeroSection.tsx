@@ -5,7 +5,9 @@ import { DonateButton } from '@/components/donation/DonateButton';
 
 export function HeroSection() {
   return (
-    <section className="relative h-[85vh] min-h-[560px] flex items-center justify-center overflow-hidden">
+    // 85svh ("small viewport height") stays constant when the mobile address bar
+    // shows/hides, so the hero doesn't resize while scrolling.
+    <section className="relative h-[85svh] min-h-[520px] sm:min-h-[560px] flex items-center justify-center overflow-hidden">
       {/* Full-bleed Background Image */}
       <div className="absolute inset-0">
         <Image

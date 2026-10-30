@@ -140,7 +140,7 @@ export function NewSection() {
       <div className="site-container">
         {/* Heading - centered */}
         <div className="text-center max-w-md mx-auto mb-16">
-          <h2 className="font-display font-bold text-5xl sm:text-6xl text-white leading-tight mb-6">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6 text-balance">
             Our{' '}
             <span className="relative inline-block">
               first steps
@@ -174,11 +174,11 @@ export function NewSection() {
         </div>
 
         {/* 3 big blue-glass stat cards (original glassmorphic treatment) */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-20">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-12 sm:mt-20">
           {stats.map((stat) => (
             <div
               key={stat.title}
-              className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 text-center border border-white/20"
+              className="bg-white/10 backdrop-blur-sm rounded-3xl p-7 sm:p-10 text-center border border-white/20"
             >
               <div className="flex items-center justify-center mb-6" style={{ color: '#FBBC02' }}>
                 {stat.icon}
