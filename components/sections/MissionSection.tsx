@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
+import { DonateButton } from '@/components/donation/DonateButton';
 
 const steps = [
   {
@@ -27,6 +28,7 @@ const features = [
   {
     image: '/Images/image_06.png',
     tag: 'EDUCATION & DEVELOPMENT',
+    cta: 'work',
     title: 'Opening doors to a brighter future.',
     description:
       'Supporting children and young people through education, mentorship and skills development.',
@@ -34,6 +36,7 @@ const features = [
   {
     image: '/Images/image_05.png',
     tag: 'CARE & SUPPORT',
+    cta: 'donate',
     title: 'Care when it matters most.',
     description:
       'We provide practical support, including medical care, guidance and assistance for people facing difficult circumstances.',
@@ -129,9 +132,15 @@ export function MissionSection() {
                 </p>
               )}
               <div className="mt-5">
-                <Button variant="outline" size="md" href="/about">
-                  See Our Work
-                </Button>
+                {feature.cta === 'donate' ? (
+                  <DonateButton variant="outline" size="md">
+                    Make a Donation
+                  </DonateButton>
+                ) : (
+                  <Button variant="outline" size="md" href="/our-work">
+                    See Our Work
+                  </Button>
+                )}
               </div>
             </div>
           ))}

@@ -17,9 +17,10 @@ const officers: Officer[] = [
   {
     name: 'Esther Chianumba',
     role: 'Officer',
-    image: '/Images/officers/esther_chianumba.png',
-    // Push the picture slightly up
-    position: 'center 10%',
+    // Zoomed-out version: same photo with the wall extended around it, so the
+    // circle shows more of her (CSS alone can't zoom out past the photo's edges).
+    image: '/Images/officers/esther_chianumba_wide.jpg',
+    position: 'center 32%',
   },
   {
     name: 'Amarachi Opara',
@@ -43,6 +44,13 @@ const officers: Officer[] = [
     position: 'center top',
     scale: 1.7,
     transformOrigin: 'top',
+  },
+  {
+    name: 'Clara Umeh',
+    role: 'Officer',
+    image: '/Images/officers/clara_umeh.jpg',
+    // Face sits in the upper third, so the default top-centered framing fits
+    position: 'center top',
   },
 ];
 

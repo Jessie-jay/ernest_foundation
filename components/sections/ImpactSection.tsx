@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+import { DonateButton } from '@/components/donation/DonateButton';
 
 const slides = [
   { src: '/Images/image_02.png', alt: 'A young person looking toward the horizon' },
@@ -51,9 +51,9 @@ export function ImpactSection() {
               Through outreach, guidance and practical support, we meet people where they are, respond to immediate needs and help create a stronger path forward for individuals and communities.
             </p>
             <div className="flex">
-              <Button variant="outline" size="lg" href="/about">
-                See Our Work
-              </Button>
+              <DonateButton variant="outline" size="lg">
+                Make a Donation
+              </DonateButton>
             </div>
           </div>
 
