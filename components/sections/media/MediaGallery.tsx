@@ -10,21 +10,38 @@ type GalleryItem = {
 
 const items: GalleryItem[] = [
   {
-    src: '/Images/media/school-visits/school_visit_01.png',
+    src: '/Images/media/school-visits/image_01.png',
     caption: 'Sharing a joyful moment with students',
   },
   {
-    src: '/Images/media/school-visits/school_visit_02.png',
+    src: '/Images/media/school-visits/image_02.png',
     caption: 'Encouraging young learners to dream big.',
   },
   {
-    src: '/Images/media/school-visits/school_visit_03.png',
+    src: '/Images/media/school-visits/image_03.png',
     caption: 'Connecting with pupils and their teachers.',
   },
   {
-    src: '/Images/media/school-visits/school_visit_04.png',
+    src: '/Images/media/school-visits/image_04.png',
     caption: 'Celebrating education and community together.',
   },
+    {
+    src: '/Images/media/school-visits/image_05.png',
+    caption: 'School visits.',
+  },
+    {
+    src: '/Images/media/school-visits/image_06.png',
+    caption: 'School visits.',
+  },
+    {
+    src: '/Images/media/school-visits/image_07.png',
+    caption: 'School visits.',
+  },
+    {
+    src: '/Images/media/school-visits/image_08.png',
+    caption: 'School visits.',
+  },
+  
 ];
 
 const GALLERY_TITLE = 'School Visits';
