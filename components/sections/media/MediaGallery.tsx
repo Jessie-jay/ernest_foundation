@@ -11,7 +11,7 @@ type GalleryItem = {
 const items: GalleryItem[] = [
   {
     src: '/Images/media/school-visits/image_01.png',
-    caption: 'Sharing a joyful moment with students',
+    caption: 'Standing as a mentor to every student',
   },
   {
     src: '/Images/media/school-visits/image_02.png',
@@ -27,19 +27,19 @@ const items: GalleryItem[] = [
   },
     {
     src: '/Images/media/school-visits/image_05.png',
-    caption: 'School visits.',
+    caption: 'Sharing a joyful moment with students',
   },
     {
     src: '/Images/media/school-visits/image_06.png',
-    caption: 'School visits.',
+    caption: 'Contibuting to their educational journey',
   },
     {
     src: '/Images/media/school-visits/image_07.png',
-    caption: 'School visits.',
+    caption: 'Building amazing communities among students',
   },
     {
     src: '/Images/media/school-visits/image_08.png',
-    caption: 'School visits.',
+    caption: 'Students emotional effort',
   },
   
 ];
